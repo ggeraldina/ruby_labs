@@ -1,0 +1,26 @@
+example_id                    | status | run_time        |
+----------------------------- | ------ | --------------- |
+./spec/core_spec.rb[1:1:1]    | passed | 0.00443 seconds |
+./spec/core_spec.rb[1:1:2]    | passed | 0.00556 seconds |
+./spec/core_spec.rb[1:1:3]    | passed | 0.00442 seconds |
+./spec/core_spec.rb[1:1:4]    | passed | 0.00304 seconds |
+./spec/core_spec.rb[1:1:5]    | passed | 0.00307 seconds |
+./spec/core_spec.rb[1:1:6]    | passed | 0.00371 seconds |
+./spec/core_spec.rb[1:1:7]    | passed | 0.00305 seconds |
+./spec/core_spec.rb[1:1:8]    | passed | 0.0035 seconds  |
+./spec/core_spec.rb[1:1:9]    | passed | 0.00366 seconds |
+./spec/core_spec.rb[1:1:10]   | passed | 0.00233 seconds |
+./spec/core_spec.rb[1:1:11]   | passed | 0.00384 seconds |
+./spec/core_spec.rb[1:1:12]   | passed | 0.00342 seconds |
+./spec/core_spec.rb[1:1:13]   | passed | 0.00318 seconds |
+./spec/core_spec.rb[1:1:14]   | passed | 0.0056 seconds  |
+./spec/core_spec.rb[1:1:15]   | passed | 0.00659 seconds |
+./spec/core_spec.rb[1:1:16]   | passed | 0.0036 seconds  |
+./spec/core_spec.rb[1:1:17]   | passed | 0.00587 seconds |
+./spec/core_spec.rb[1:2:1]    | passed | 0.00218 seconds |
+./spec/core_spec.rb[1:3:1]    | passed | 0.00603 seconds |
+./spec/core_spec.rb[1:4]      | passed | 0.01723 seconds |
+./spec/library_spec.rb[1:1:1] | passed | 0.00014 seconds |
+./spec/person_spec.rb[1:1:1]  | passed | 0.00085 seconds |
+./spec/person_spec.rb[1:2:1]  | passed | 0.00018 seconds |
+./spec/readers_spec.rb[1:1:1] | passed | 0.00013 seconds |

@@ -1,0 +1,72 @@
+<div class="grid-x grid-padding-x">
+  <div class="large-12 cell">
+    <h3>
+      Информация о книге
+    </h3>
+  </div>
+</div>
+
+
+<div class="callout primary grid-x">  
+        <div class="large-12 cell">  
+          <h4>Книга</h4> 
+          <div class="lagre-12 cell">
+              <label>Номер: <%= @number %></label>
+          </div>
+          <div class="lagre-12 cell">
+              <label>Название: <%= @name %></label>
+          </div>
+          <div class="lagre-12 cell">
+              <label>Автор: <%= @author_name %></label>
+          </div>
+          <div class="lagre-12 cell">
+              <label>Жанр: <%= @genre %></label>
+          </div>
+          <div class="lagre-12 cell">
+              <label>Количество: <%= @copies_book %></label>
+          </div>
+          <div class="lagre-12 cell">
+              <label>Возрастная категория: <%= @min_reader_age %>+</label> 
+          </div>
+        </div>
+    </div>
+
+
+<% if @free_book > 0 %>
+  <div class="grid-x grid-padding-x">
+    <div class="large-12 cell">
+      <h4>
+        Вы можете удалить книги (максимум <%= @free_book %> шт.)
+      </h4>
+    </div>
+  </div>
+  <form method="post">
+      <div class="grid-x">
+          <div class="lagre-12 cell">
+            <label>Количество удаляемых книг
+                <select id="select" name="count_remove_book" >
+                    <% (1..@free_book).each do |i| %>
+                        <option value="<%= i %>"><%= i %></option>
+                    <% end %>
+                </select>
+            </label>
+          </div>
+
+          <div class="medium-1 cell">
+            <a href="/" class="button secondary">Назад</a>
+          </div>
+
+          <div class="medium-11 cell">
+            <input type="submit" value="Удалить" class="button alert">
+          </div>
+      </div>
+  </form>
+<% else %>
+  <div class="grid-x grid-padding-x">
+    <div class="large-12 cell">
+      <h4>
+        Все книги разобраны читателями. Вы не можете удалить ни одну из книг.
+      </h4>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,73 @@
+<div class="grid-x grid-padding-x">
+  <div class="large-12 cell">
+    <h3>
+      Взятие книги
+    </h3>
+  </div>
+</div>
+
+<% if @errors && !@errors.empty? %>
+  <div class="callout alert">
+    <div class="large-12 cell">
+      <h4>Ошибки ввода данных</h4>
+    </div>
+    <% @errors.each do |error|%>
+      <div class="large-12 cell">
+        <%= error%>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<form method="post">
+    <div class="callout primary grid-x">
+        <div class="large-12 cell">  
+          <h4>Читатель</h4> 
+          <div class="lagre-12 cell">
+              <label>Фамилия: <%= @reader.last_name %></label>
+          </div>
+          <div class="lagre-12 cell">
+              <label>Имя: <%= @reader.first_name %></label>
+          </div>
+          <div class="lagre-12 cell">
+              <label>Отчество: <%= @reader.patronymic %></label>
+          </div>
+          <div class="lagre-12 cell">
+              <label>Возраст: <%= @reader.age %></label>
+          </div>
+        </div>
+    </div>
+    <div class="callout primary grid-x">  
+        <div class="large-12 cell">  
+          <h4>Книга</h4> 
+          <div class="lagre-12 cell">
+              <label>Номер: <%= @number %></label>
+          </div>
+          <div class="lagre-12 cell">
+              <label>Название: <%= @book.name %></label>
+          </div>
+          <div class="lagre-12 cell">
+              <label>Автор: <%= @book.author_name %></label>
+          </div>
+          <div class="lagre-12 cell">
+              <label>Жанр: <%= @book.genre %></label>
+          </div>
+          <div class="lagre-12 cell">
+              <label>Возрастная категория: <%= @book.min_reader_age %>+</label> 
+          </div>
+        </div>
+    </div>
+    <div class="lagre-12 cell">
+      <label>Дата возврата
+        <input type="text" placeholder="2019-12-01" name="date" value="<%= @date %>">
+      </label>
+    </div>
+    <div class="grid-x">
+      <div class="medium-1 cell">
+        <a href="/search_book/<%= @index %>" class="button secondary">Отмена</a>
+      </div>
+      <div class="medium-11 cell">        
+        <input type="submit" value="Взять" class="button success">        
+      </div>
+    </div>
+</form>

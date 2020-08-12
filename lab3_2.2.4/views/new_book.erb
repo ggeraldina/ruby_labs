@@ -1,0 +1,63 @@
+<div class="grid-x grid-padding-x">
+  <div class="large-12 cell">
+    <h3>
+      Введите новую книгу
+    </h3>
+  </div>  
+</div>
+
+<% if @errors && !@errors.empty? %>
+  <div class="callout alert">
+    <div class="large-12 cell">
+      <h4>Ошибки ввода данных</h4>
+    </div>
+    <% @errors.each do |error|%>
+      <div class="large-12 cell">
+        <%= error%>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<form method="post">
+  <div>
+    <div class="lagre-12 cell">
+      <label>Номер
+        <input type="text" placeholder="123" name="number" value="<%= @number %>">
+      </label>
+    </div>
+    <div class="lagre-12 cell">
+      <label>Название
+        <input type="text" placeholder="Война и мир" name="name" value="<%= @name %>">
+      </label>
+    </div>
+    <div class="lagre-12 cell">
+      <label>Автор
+        <input type="text" placeholder="Толстой Л.Н." name="author_name" value="<%= @author_name %>">
+      </label>
+    </div>
+    <div class="lagre-12 cell">
+      <label>Жанр
+        <input type="text" placeholder="Роман-эпопея" name="genre" value="<%= @genre %>">
+      </label>
+    </div>
+    <div class="lagre-12 cell">
+      <label>Количество
+        <input type="text" placeholder="1" name="copies_book" value="<%= @copies_book %>">
+      </label>
+    </div>
+    <div class="lagre-12 cell">
+      <label>Возрастная категория (n+)
+        <input type="text" placeholder="6" name="min_reader_age" value="<%= @min_reader_age %>">
+      </label>
+    </div>
+  </div>
+    <div class="grid-x">
+        <div class="medium-1 cell">
+            <a href="/" class="button secondary">Отмена</a>
+        </div>    
+        <div class="medium-11 cell">
+            <input type="submit" value="Добавить" class="button success">
+        </div>
+    </div>
+</form>

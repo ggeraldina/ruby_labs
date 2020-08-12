@@ -1,0 +1,60 @@
+<div class="grid-x grid-padding-x">  
+    <div class="large-12 cell">  
+      <h3>Список книг</h3>
+    </div>
+</div>
+
+<div  class="secondary callout large-12 cell">
+  <form method="post" class="">  
+    <fieldset>
+      <legend><h4>Сортировка</h4></legend>
+      <% if @checked_sort_author %>
+      <input type="radio" name="sort" id="sortAuthor" value="checkedSortAuthor" checked><label for="sortAuthor">по автору</label>
+      <input type="radio" name="sort" id="sortName" value="checkedSortName"> <label for="sortName">по названию</label>
+      <% else %>
+      <input type="radio" name="sort" id="sortAuthor" value="checkedSortAuthor"><label for="sortAuthor">по автору</label>
+      <input type="radio" name="sort" id="sortName" value="checkedSortName" checked> <label for="sortName">по названию</label>
+      <% end %>
+    </fieldset>   
+    <div>
+      <input type="submit" value="Отсортировать" class="button success">
+    </div>
+  </form>
+</div>
+
+<div class="grid-x grid-padding-x"> 
+    <div class="large-12 cell"> 
+        <a href="/new_book" class="button float-right">Добавить</a>
+    </div>
+</div>
+
+
+<table class="unstriped">
+  <thead>
+    <tr>
+      <th>Номер</th>
+      <th>Название</th>
+      <th>Автор</th>
+      <th>Жанр</th>
+      <th>Количество экземпляров</th>
+      <th>Свободных книг</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @library.each_pair do |number, book| %>  
+      <tr>
+        <td><%= number %></td>
+        <td><%= book.name %></td>
+        <td><%= book.author_name %></td>
+        <td><%= book.genre %></td>
+        <td><%= book.copies_book %></td>
+        <td><%= book.free_book %></td>
+        <td>
+          <a class="button" id="book_<%= number %>" href="/show_book/<%= number %>"><i class="fas fa-info-circle"></i></a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

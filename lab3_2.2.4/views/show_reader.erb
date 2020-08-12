@@ -1,0 +1,81 @@
+<div class="grid-x grid-padding-x">
+  <div class="large-12 cell">
+    <h3>
+      Информация о читателе
+    </h3>
+  </div>
+</div>
+
+<form method="post">
+    <div class="callout primary grid-x">
+        <div class="large-12 cell">  
+          <h4>Читатель</h4> 
+          <div class="lagre-12 cell">
+              <label>Фамилия: <%= @last_name %></label>
+          </div>
+          <div class="lagre-12 cell">
+              <label>Имя: <%= @first_name %></label>
+          </div>
+          <div class="lagre-12 cell">
+              <label>Отчество: <%= @patronymic %></label>
+          </div>
+          <div class="lagre-12 cell">
+              <label>Возраст: <%= @age %></label>
+          </div>
+        </div>
+    </div>
+    <div class="grid-x">
+      <div class="medium-1 cell">
+        <a href="/readers" class="button secondary">Назад</a>
+      </div>
+      <div class="medium-11 cell"> 
+        <a href="/search_book/<%= @index %>" class="button">Подобрать книгу</a>                            
+      </div>
+    </div>
+
+    <% unless @books.empty? %>
+        <div class="grid-x">
+            <div class="large-12 cell">
+                <h4>
+                    У читателя есть книги. Этого читателя удалить нельзя
+                </h4>
+            </div>
+        </div>
+        <table class="unstriped">
+            <thead>
+                <tr>
+                <th>Номер книги</th>
+                <th>Дата возврата</th>
+                <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @books.each_pair do |number, date| %>  
+                <tr>
+                    <td><%= number %></td>
+                    <td><%= date.strftime('%d.%m.%Y') %></td>
+                    <td>
+                        <div class="grid-x grid-padding-x"> 
+                            <a href="/return_book/<%= number %>/<%= @index %>" class="button">Вернуть</a>                            
+                        </div>
+                    </td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    <% else %>
+        <div class="grid-x">
+            <div class="large-12 cell">
+                <h4>
+                    Вы можете удалить этого читателя
+                </h4>
+            </div>
+        </div>
+        <div class="grid-x">
+            <div class="large-12 cell">
+                <input type="submit" value="Удалить" class="button alert">
+            </div>
+        </div>
+    <% end %>
+</form>
+

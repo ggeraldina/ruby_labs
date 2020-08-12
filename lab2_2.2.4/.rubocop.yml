@@ -1,0 +1,19 @@
+# rubocop:disable Metrics/LineLength
+# rubocop:enable Metrics/LineLength
+# Отключение ABC-проверок
+Metrics/AbcSize:
+  Enabled: false
+# Длина строк 120
+Metrics/LineLength:
+  Max: 120
+# Количество строк кода 15
+Metrics/MethodLength:
+  Max: 15
+# Длина блоков в тестах
+Metrics/BlockLength:
+  ExcludedMethods: 
+  - describe
+  - context
+# Не форсировать unless
+Style/NegatedIf:
+  Enabled: false

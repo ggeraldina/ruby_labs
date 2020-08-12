@@ -1,0 +1,64 @@
+<div class="grid-x grid-padding-x">  
+    <div class="large-12 cell">  
+      <h3>Возврат книги</h3>
+    </div>
+</div>
+
+<div class="callout primary grid-x">
+    <div class="large-12 cell">  
+      <h4>Читатель</h4> 
+      <div class="lagre-12 cell">
+          <label>Фамилия: <%= @last_name %></label>
+      </div>
+      <div class="lagre-12 cell">
+          <label>Имя: <%= @first_name %></label>
+      </div>
+      <div class="lagre-12 cell">
+          <label>Отчество: <%= @patronymic %></label>
+      </div>
+      <div class="lagre-12 cell">
+          <label>Возраст: <%= @age %></label>
+      </div>
+    </div>
+</div>
+
+<div class="callout primary grid-x">  
+    <div class="large-12 cell">  
+      <h4>Книга</h4> 
+      <div class="lagre-12 cell">
+          <label>Номер: <%= @number %></label>
+      </div>
+      <div class="lagre-12 cell">
+          <label>Название: <%= @name %></label>
+      </div>
+      <div class="lagre-12 cell">
+          <label>Автор: <%= @author_name %></label>
+      </div>
+      <div class="lagre-12 cell">
+          <label>Жанр: <%= @genre %></label>
+      </div>
+      <div class="lagre-12 cell">
+          <label>Возрастная категория: <%= @min_reader_age %>+</label> 
+      </div>
+    </div>
+</div>
+
+<% if @sum_fine > 0%>
+    <div class="callout alert grid-x">  
+        <div class="large-12 cell">  
+            <h4>Размер штрафа: <%= @sum_fine %> ₽</h4>
+        </div>
+    </div>
+<% end %>
+
+
+<form method="post">
+    <div class="grid-x">
+        <div class="medium-1 cell grid-padding-x">
+            <a href="/show_reader/<%= @index %>" class="button secondary">Отмена</a>
+        </div>
+        <div class="medium-11 cell grid-padding-x">
+            <input type="submit" value="Вернуть" class="button success">
+        </div>
+    </div>
+</form>

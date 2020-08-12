@@ -1,0 +1,51 @@
+<div class="grid-x grid-padding-x">  
+    <div class="large-12 cell">  
+      <h3>Подбор книги</h3>
+    </div>
+</div>
+
+
+<form method="post">
+    <div class="input-group">
+            <input class="input-group-field" type="text" placeholder="Введите автора или жанр" name="search" value="<%= @search %>">
+        <div class="input-group-button">
+            <input type="submit" value="Поиск" class="button success">
+        </div>
+    </div>
+</form>
+
+<div class="grid-x grid-padding-x">
+  <div class="large-12 cell">
+      <a href="/show_reader/<%= @index %>" class="button secondary">Назад</a>
+  </div>
+</div>
+
+<table class="unstriped">
+  <thead>
+    <tr>
+      <th>Номер</th>
+      <th>Название</th>
+      <th>Автор</th>
+      <th>Жанр</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @library.each_pair do |number, book| %>
+      <% if book.free_book > 0 %>    
+        <tr>
+          <td><%= number %></td>
+          <td><%= book.name %></td>
+          <td><%= book.author_name %></td>
+          <td><%= book.genre %></td>
+          <td>
+            <div>
+              <a id="book_<%= number %>" href="/take_book/<%= number %>/<%= @index %>" class="button">Взять</a>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+

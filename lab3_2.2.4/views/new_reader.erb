@@ -1,0 +1,59 @@
+<div class="grid-x grid-padding-x">
+  <div class="large-12 cell">
+    <h3>
+      Введите данные для изменения читателя
+    </h3>
+  </div>
+</div>
+
+<div class="callout warning">
+    <div class="large-12 cell">
+      Если данный читатель уже есть в списке, то повторно он добавлен не будет.
+    </div>
+</div>
+
+<% if @errors && !@errors.empty? %>
+  <div class="callout alert">
+    <div class="large-12 cell">
+      <h4>Ошибки ввода данных</h4>
+    </div>
+    <% @errors.each do |error|%>
+      <div class="large-12 cell">
+        <%= error%>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<form method="post">
+  <div>
+    <div class="lagre-12 cell">
+      <label>Фамилия
+        <input type="text" placeholder="Иванов" name="last_name" value="<%= @last_name %>">
+      </label>
+    </div>
+    <div class="lagre-12 cell">
+      <label>Имя
+        <input type="text" placeholder="Иван" name="first_name" value="<%= @first_name %>">
+      </label>
+    </div>
+    <div class="lagre-12 cell">
+      <label>Отчество
+        <input type="text" placeholder="Иванович" name="patronymic" value="<%= @patronymic %>">
+      </label>
+    </div>
+    <div class="lagre-12 cell">
+      <label>Возраст
+        <input type="text" placeholder="18" name="age" value="<%= @age %>">
+      </label>
+    </div>
+  </div>
+  <div class="grid-x">
+    <div class="medium-1 cell">
+        <a href="/readers" class="button secondary">Отмена</a>
+    </div>
+    <div class="medium-11 cell">
+        <input type="submit" value="Добавить" class="button success">
+    </div>
+</div>
+</form>
